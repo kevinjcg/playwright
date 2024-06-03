@@ -11,7 +11,10 @@ jobs:
       with:
         node-version: lts/*
     - name: Test to use variables & Secrets
+      env:
+        BASE_URL: ${{ env.BASE_URL }}
+        SCALAR_PASSWORD: ${{ secrets.SCALAR_PASSWORD }}
       run: |
         echo "This is a test"
-        echo "This is a test with a variable: $BASE_URL ${{ env.BASE_URL }}"
-        echo "This is a test with a secret: ${{ secrets.SCALAR_PASSWORD }}"
+        echo "This is a test with a variable: $BASE_URL"
+        echo "This is a test with a secret: $SCALAR_PASSWORD"
