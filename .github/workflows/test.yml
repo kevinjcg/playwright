@@ -1,6 +1,8 @@
 name: Just Test
 on:
   workflow_dispatch:
+env:
+  SCALAR_USERNAME: env.SCALAR_USERNAME
 jobs:
   test:
     timeout-minutes: 60
