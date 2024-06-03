@@ -18,14 +18,14 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       env:
-        AUTO_PLAYWRIGHT_DEBUG: ${{ env.AUTO_PLAYWRIGHT_DEBUG }}
-        BASE_URL: ${{ env.BASE_URL }}
+        AUTO_PLAYWRIGHT_DEBUG: ${{ vars.AUTO_PLAYWRIGHT_DEBUG }}
+        BASE_URL: ${{ vars.BASE_URL }}
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
-        TESTRAIL_USERNAME: ${{ env.TESTRAIL_USERNAME }}
+        TESTRAIL_USERNAME: ${{ vars.TESTRAIL_USERNAME }}
         TESTRAIL_API_KEY: ${{ secrets.TESTRAIL_API_KEY }}
-        SCALAR_USERNAME: ${{ env.SCALAR_USERNAME }}
+        SCALAR_USERNAME: ${{ vars.SCALAR_USERNAME }}
         SCALAR_PASSWORD: ${{ secrets.SCALAR_PASSWORD }}
-        SCALAR_DASH409A_USERNAME: ${{ env.SCALAR_DASH409A_USERNAME }}
+        SCALAR_DASH409A_USERNAME: ${{ vars.SCALAR_DASH409A_USERNAME }}
         SCALAR_DASH409A_PASSWORD: ${{ secrets.SCALAR_DASH409A_PASSWORD }}
       run: npx playwright test
     - uses: actions/upload-artifact@v4
