@@ -13,5 +13,5 @@ jobs:
     - name: Test to use variables & Secrets
       run: |
         echo "This is a test"
-        echo "This is a test with a secret: ${{ env.SCALAR_USERNAME }}"
+        echo "This is a test with a variable: $SCALAR_USERNAME"
         echo "This is a test with a secret: ${{ secrets.SCALAR_PASSWORD }}"
