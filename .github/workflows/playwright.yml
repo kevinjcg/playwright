@@ -10,17 +10,23 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: lts/*
+    - name: Move to Playwright directory
+      run: cd ./playwright
     - name: Install dependencies
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Set environment variables from .env file
-      run: export $(cat .env | xargs)
-    - name: Verify environment variables
-      run: |
-        echo "SCALAR_USERNAME is $SCALAR_USERNAME"
-        echo "DB_PASSWORD is $DB_PASSWORD"
     - name: Run Playwright tests
+      env:
+        AUTO_PLAYWRIGHT_DEBUG: ${{ env.AUTO_PLAYWRIGHT_DEBUG }}
+        BASE_URL: ${{ env.BASE_URL }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        TESTRAIL_USERNAME: ${{ env.TESTRAIL_USERNAME }}
+        TESTRAIL_API_KEY: ${{ secrets.TESTRAIL_API_KEY }}
+        SCALAR_USERNAME: ${{ env.SCALAR_USERNAME }}
+        SCALAR_PASSWORD: ${{ secrets.SCALAR_PASSWORD }}
+        SCALAR_DASH409A_USERNAME: ${{ env.SCALAR_DASH409A_USERNAME }}
+        SCALAR_DASH409A_PASSWORD: ${{ secrets.SCALAR_DASH409A_PASSWORD }}
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: always()
