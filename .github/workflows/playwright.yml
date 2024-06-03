@@ -14,13 +14,8 @@ jobs:
       run: npm ci
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Display .env file content
-      run: cat .env
     - name: Set environment variables from .env file
-      run: |
-        set -o allexport
-        source .env
-        set +o allexport
+      run: export $(cat .env | xargs)
     - name: Verify environment variables
       run: |
         echo "SCALAR_USERNAME is $SCALAR_USERNAME"
