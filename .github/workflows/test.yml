@@ -1,8 +1,6 @@
 name: Just Test
 on:
   workflow_dispatch:
-env:
-  SCALAR_USERNAME: env.SCALAR_USERNAME
 jobs:
   test:
     timeout-minutes: 60
@@ -15,5 +13,5 @@ jobs:
     - name: Test to use variables & Secrets
       run: |
         echo "This is a test"
-        echo "This is a test with a variable: $SCALAR_USERNAME"
+        echo "This is a test with a variable: $BASE_URL ${{ env.BASE_URL }}"
         echo "This is a test with a secret: ${{ secrets.SCALAR_PASSWORD }}"
