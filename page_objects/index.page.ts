@@ -29,6 +29,7 @@ class IndexPage {
         await this.$login_username_input.fill(envVariables.SCALAR_USERNAME);
         await this.$login_password_input.fill(envVariables.SCALAR_PASSWORD);
         await this.$login_button.click();
+        await this.page.waitForSelector('#cancel-btn', { state: 'visible' });
         await this.$2FA_cancel_button.isVisible();
         await this.$2FA_cancel_button.click();
         await this.$remind_me_later_button.click();
