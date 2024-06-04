@@ -31,7 +31,7 @@ class IndexPage {
         await this.$login_button.click();
 
         // await expect(this.page.getByRole('heading', { name: 'Two Factor Setup' })).toBeVisible();
-        await this.page.waitForSelector('#cancel-btn', { state: 'visible' });
+        // await this.page.waitForSelector('#cancel-btn', { state: 'visible' });
         await this.page.getByRole('button', { name: 'Cancel' }).click();
         await this.page.getByRole('button', { name: 'Remind me later' }).click();
         await this.page.getByRole('button', { name: 'C ContractusFirm' }).click();
