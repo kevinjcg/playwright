@@ -18,6 +18,7 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests
       env:
+        CI: true
         AUTO_PLAYWRIGHT_DEBUG: ${{ vars.AUTO_PLAYWRIGHT_DEBUG }}
         BASE_URL: ${{ vars.BASE_URL }}
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}

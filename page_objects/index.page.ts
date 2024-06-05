@@ -29,15 +29,9 @@ class IndexPage {
         await this.$login_username_input.fill(envVariables.SCALAR_USERNAME);
         await this.$login_password_input.fill(envVariables.SCALAR_PASSWORD);
         await this.$login_button.click();
-
-        // await expect(this.page.getByRole('heading', { name: 'Two Factor Setup' })).toBeVisible();
-        // await this.page.waitForSelector('#cancel-btn', { state: 'visible' });
-        await this.page.getByRole('button', { name: 'Cancel' }).click();
-        await this.page.getByRole('button', { name: 'Remind me later' }).click();
+        await this.$2FA_cancel_button.click();
+        await this.$remind_me_later_button.click();
         await this.page.getByRole('button', { name: 'C ContractusFirm' }).click();
-        // await this.$2FA_cancel_button.click();
-        // await this.$remind_me_later_button.click();
-        // await this.page.getByRole('button', { name: 'C ContractusFirm' }).click();
     }
 }
 
