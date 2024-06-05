@@ -27,7 +27,7 @@ jobs:
         SCALAR_USERNAME: ${{ vars.SCALAR_USERNAME }}
         SCALAR_PASSWORD: ${{ secrets.SCALAR_PASSWORD }}
         SCALAR_DASH409A_USERNAME: ${{ vars.SCALAR_DASH409A_USERNAME }}
-        SCALAR_DASH409A_PASSWORD: ${{ secrets.SCALAR_DASH409A_PASSWORD }}
+        SCALAR_DASH409A_PASSWORD: ${{ secrets.SCALAR_PASSWORD }}
       run: npx playwright test
     - uses: actions/upload-artifact@v4
       if: always()

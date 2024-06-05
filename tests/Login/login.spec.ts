@@ -22,7 +22,7 @@ test.describe('Login Page - Login Form', () => {
     await loginPage.$login_username_input.fill('wrong_username@gmail.com');
     await loginPage.$login_password_input.fill('wrong_password');
     await loginPage.$login_button.click();
-
+    await loginPage.page.waitForSelector(loginPage.$main_val_alert_message_selector, { state: 'visible' });
     await expect(loginPage.$main_val_alert_message).toContainText('Wrong username or password');
   });
 
